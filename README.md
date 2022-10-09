@@ -1,6 +1,6 @@
 1.) To Run or Use the app there are two ways -
 
-A.) The Swaggerhub way using deployed appliocation
+A.) The Swaggerhub way using deployed application
 
 -   Use the deployed application to AWS
     url - http://sunspotanalyzer-env.eba-7wpjmwpx.eu-central-1.elasticbeanstalk.com/sun-spot-analyser-api/
