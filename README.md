@@ -9,7 +9,7 @@ A.) The Swaggerhub way using deployed application
     url - https://app.swaggerhub.com/apis/JAISINHBHOSALE/Sun_Spot_Analyzer/1.0.0
     Or you can simply copy the OAS file from project directory to your swagger account and test. 
     Please check the server selected on swaggerhub, i have disabled auto-mocking, but just to be on      safer side.
-    Please note the datebase has first entry with id 1 already stored, could be used for testing
+    Please note the database has first entry with id 1 already stored, could be used for testing
 
 
 B.) Running docker with testing using postman
@@ -20,10 +20,10 @@ B.) Running docker with testing using postman
    
 -   Use the Postman workspace -
     url - https://www.postman.com/orange-firefly-598387/workspace/sun-spot-analyser/overview
-    All routes can me found in collection section as "GET", "POST" and "DELETE" collection.
+    All routes can be found in collection section as "GET", "POST" and "DELETE" collection.
 
 
 2.) Unit testing -
     - Installing dependancies from requirements.txt
-    - Run views/unit_tests.py file.
+     Run views/unit_tests.py file.
 
