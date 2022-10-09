@@ -1,0 +1,217 @@
+openapi: 3.0.0
+servers:
+  - description: Sun Spot Analyzer
+    url: http://sunspotanalyzer-env.eba-7wpjmwpx.eu-central-1.elasticbeanstalk.com/sun-spot-analyser-api
+info:
+  version: "1.0.0"
+  title: Sun Spot Analyzer App
+  description: Sun Spot Analyzer
+paths:
+  /:            
+      get:
+          tags:
+            - Check if App works
+          description: Check if App works
+          operationId: checkApp
+          responses:
+            '200':
+              description: App works successfully
+  /grid:
+    post:
+      tags:
+        - Post Grid Details
+      operationId: gridPost
+      responses:
+        '200':
+          description: Posting grid value and grids size to database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gridInfo'
+   
+  /scores:            
+    get:
+        tags:
+          - Get grid Score
+        description: Score for each cell in the grid
+        operationId: getGridScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        responses:
+          '200':
+            description: Success
+            
+  /grid_value:            
+    get:
+        tags:
+          - Get grid value
+        description: Get grid values in the form of 2d matrix.
+        operationId: getGridValue
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        responses:
+          '200':
+            description: Success 
+            
+  /cell_score:            
+    get:
+        tags:
+          - Get score for a cell in grid
+        description: Get score for a particular cell within grid
+        operationId: getCellScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        - in: query
+          name: x
+          schema:
+            type: integer
+          required: true
+          description: row number of grid
+        - in: query
+          name: y
+          schema:
+            type: integer
+          required: true
+          description: column number of grid
+        responses:
+          '200':
+            description: Success
+            
+  /min_scores:            
+    get:
+        tags:
+          - Get minimum score in grid
+        description: Get minimum score within the grid and its corresponding x,y location
+        operationId: getGridMinScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        responses:
+          '200':
+            description: Success
+            
+  /max_scores:            
+    get:
+        tags:
+          - Get maximum score in grid
+        description: Get maximum score within the grid and its corresponding x,y location
+        operationId: getGridMaxScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        responses:
+          '200':
+            description: Success
+            
+  /top_x_scores:            
+    get:
+        tags:
+          - Get top x score in grid
+        description: Get top x score and its corresponding x,y locations
+        operationId: getGridTopxScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        - in: query
+          name: top_x
+          schema:
+            type: integer
+          required: true
+          description: x values to compute topx score
+        responses:
+          '200':
+            description: Success
+            
+  /bottom_x_scores:            
+    get:
+        tags:
+          - Get bottom x score in grid
+        description: Get bottom x score and its corresponding x,y locations
+        operationId: getGridBottomxScore
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        - in: query
+          name: bottom_x
+          schema:
+            type: integer
+          required: true
+          description: x values to compute bottomx score
+        responses:
+          '200':
+            description: Success
+            
+  /ids:            
+    get:
+        tags:
+          - Get list of all ids
+        description: Get list of all ids
+        operationId: getIdsList
+        responses:
+          '200':
+            description: Success
+            
+  /delete_grid:            
+    delete:
+        tags:
+          - Delete grid with an id
+        description: Delete grid with an id
+        operationId: deleteId
+        parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the grid to get
+        responses:
+          '200':
+            description: Success
+            
+
+              
+          
+ 
+components:
+  schemas:
+    gridInfo:
+      type: object
+      properties:
+        size:
+          type: integer
+          description: Size of the grid
+        values:
+          type: string
+          description: Grid values
