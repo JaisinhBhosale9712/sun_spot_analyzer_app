@@ -21,6 +21,7 @@ B.) Running docker with testing using postman
 -   Use the Postman workspace -
     url - https://www.postman.com/orange-firefly-598387/workspace/sun-spot-analyser/overview
     All routes can be found in collection section as "GET", "POST" and "DELETE" collection.
+    Please use the postman desktop app as the web app will not support localhost endpoints.
 
 
 2.) Unit testing -
