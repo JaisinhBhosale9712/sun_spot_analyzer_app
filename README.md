@@ -7,7 +7,7 @@ A.) The Swaggerhub way using deployed application
 
 -   You can easily test all routes using swaggerhub -
     url - https://app.swaggerhub.com/apis/JAISINHBHOSALE/Sun_Spot_Analyzer/1.0.0
-    Or you can simply copy the OAS file from project directory to your swagger account and test. 
+    Or you can simply copy the openapi.yaml file from project directory to your swagger account and test. 
     Please check the server selected on swaggerhub, i have disabled auto-mocking, but just to be on      safer side.
     Please note the database has first entry with id 1 already stored, could be used for testing
 
